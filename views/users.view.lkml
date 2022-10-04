@@ -62,6 +62,10 @@ view: users {
     type: string
     sql: ${TABLE}.state ;;
     map_layer_name: us_states
+    link: {
+      label: "Link to Dash_2 Applying Dash_1 filter value"
+      url: ""
+    }
   }
 
   dimension: zip {
