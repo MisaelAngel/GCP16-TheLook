@@ -64,7 +64,7 @@ view: users {
     map_layer_name: us_states
     link: {
       label: "Link to Dash_2 Applying Dash_1 filter value"
-      url: ""
+      url: "https://gcpl2216.cloud.looker.com/dashboards/92?State={{ _filters['users.state'] | url_encode }}"
     }
   }
 
