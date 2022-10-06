@@ -78,6 +78,12 @@ view: users {
     drill_fields: [detail*]
   }
 
+  measure: percentil_test {
+    type: percentile
+    percentile: 5
+    sql: ${age} ;;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
