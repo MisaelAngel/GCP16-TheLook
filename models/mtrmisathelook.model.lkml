@@ -220,6 +220,8 @@ explore: test {}
 
 explore: users {}
 
+explore: users_split_email {}
+
 explore: user_data {
   join: users {
     type: left_outer
