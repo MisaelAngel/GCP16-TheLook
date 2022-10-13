@@ -6,7 +6,7 @@ include: "/views/**/*.view"
 datagroup: mtrmisathelook_default_datagroup {
   sql_trigger: SELECT EXTRACT(DAY FROM (CURRENT_TIMESTAMP - INTERVAL 6 HOUR + INTERVAL 5 MINUTE));;
   max_cache_age: "24 hour"
-  description: "Executes everyday at 6:00am"
+  description: "Executes everyday at 5:55am"
 }
 
 persist_with: mtrmisathelook_default_datagroup
