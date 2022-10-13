@@ -4,7 +4,7 @@ connection: "thelook"
 include: "/views/**/*.view"
 
 datagroup: mtrmisathelook_default_datagroup {
-  sql_trigger: SELECT EXTRACT(DAY FROM (CURRENT_TIMESTAMP - INTERVAL 6 HOUR));;
+  sql_trigger: SELECT EXTRACT(DAY FROM (CURRENT_TIMESTAMP - INTERVAL 6 HOUR + INTERVAL 5 MINUTE));;
   max_cache_age: "24 hour"
   description: "Executes everyday at 6:00am"
 }
