@@ -12,7 +12,7 @@ view: users {
     type: number
     sql: ${TABLE}.age ;;
   }
-
+#test
   dimension: age_tier {
     type: tier
     tiers: [0,10,20,30,40,50,60,70,80]
