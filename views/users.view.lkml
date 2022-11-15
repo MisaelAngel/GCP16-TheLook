@@ -96,6 +96,38 @@ view: users {
     sql: ${age} ;;
   }
 
+  measure: age_functions{
+    type: number
+    sql: CASE WHEN {%parameter type_of_function%} = 'AVG'
+          THEN AVG(${age})
+        ELSE
+          round(100*${count},0)
+        END;;
+    html: {% if type_of_function._parameter_value == "'AVG'" %}
+             {{ users.count._value | floor}}h {{ users.count._value | times: 67 | modulo: 60}}m
+           {% else %}
+             {{ rendered_value | append: "%" }}
+           {% endif %}
+     ;;
+  }
+
+  parameter: type_of_function {
+    type: string
+    label: "Function"
+    allowed_value: {
+      label: "Average Age"
+      value: "AVG"
+    }
+    allowed_value: {
+      label: "Highest Age"
+      value: "MAX"
+    }
+    allowed_value: {
+      label: "Lowest Age"
+      value: "MIN"
+    }
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
