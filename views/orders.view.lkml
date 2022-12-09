@@ -22,6 +22,34 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: run_date_time {
+
+    type: date_time
+
+    label: "Report Generated On:"
+
+    sql: CURRENT_TIMESTAMP ;;
+
+    html: {% if _user_attributes['locale'] == 'en' %}
+
+                  {{ rendered_value | date: "%d-%^b-%Y %I:%M %p" }}
+
+      {% elsif _user_attributes['locale'] == 'ja' %}
+
+      {{ rendered_value | date: "%Y-%m-%d %H:%M" }}
+
+      {% else %}
+
+      {{ rendered_value | date: "%d-%^b-%Y %I:%M %p" }}
+
+      {% endif %};;
+
+    convert_tz: no
+
+  }
+
+
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;

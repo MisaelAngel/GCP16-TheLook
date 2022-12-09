@@ -34,14 +34,22 @@ view: order_items {
     sql: ${TABLE}.returned_at ;;
   }
 
-  dimension: sale_price {
+  dimension: sales_price {
     type: number
-    sql: ${TABLE}.sale_price ;;
+    sql: ${TABLE}.sales_price ;;
   }
 
-  measure: total_revenue {
-    type: sum
-    sql: ${sale_price} ;;
+  dimension: test_sales_price {
+    type: number
+    sql: ${TABLE}.sale_price*550
+    html:
+    {% if ${sales_price} > 500 %}
+     {{rendered_value}}
+    {% elsif ${sales_price} > 50 %}
+    {{rendered_value}}
+    {% else %}
+     ${sales_price}
+    {% endif %} ;;
   }
 
   measure: count {
