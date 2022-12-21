@@ -12,6 +12,8 @@ GROUP BY
 ORDER BY
     COUNT(DISTINCT orders.id ) DESC
 LIMIT 10;;
+indexes: ["users_city"]
+datagroup_trigger: mtrmisathelook_default_datagroup
   }
 
   dimension: users_city {

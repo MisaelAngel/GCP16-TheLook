@@ -67,11 +67,11 @@ view: users {
 
   dimension: state {
     type: string
-    sql: ${TABLE}.state ;;
+    sql: CONCAT(${TABLE}.state," &", " Extra") ;;
     map_layer_name: us_states
     link: {
-      label: "Link to Dash_2 Applying Dash_1 filter value"
-      url: "https://gcpl2216.cloud.looker.com/dashboards/92?State={{ _filters['users.state'] | url_encode }}"
+      label: "Google"
+      url: "https://gcpl2216.cloud.looker.com/dashboards/92?State={{ value | url_encode}}&Created+Year="
     }
   }
 
